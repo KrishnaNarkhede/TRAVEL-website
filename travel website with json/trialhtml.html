@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INDIAN TRAVELSW</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .hero {
+            background: url('https://via.placeholder.com/1920x600') no-repeat center center;
+            background-size: cover;
+            color: rgb(248, 251, 251);
+            padding: 100px 0;
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 250px; /* Fixed height for gallery images */
+            object-fit: cover; /* Ensures images fit nicely without distortion */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+        <a class="navbar-brand" href="#">INDIAN TOURS</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" id="HOME" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="LOCATION" href="#location">Location</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="WAYTOTRAVEL" href="#travel">Ways to Travel</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="MORE" href="#more">More Info</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero text-center">
+        <div class="container">
+            <h1 class="display-4" id="fort-title">Welcome to travel guide</h1>
+            <!-- <p class="lead">Discover the rich history and stunning views of these historic forts.</p> -->
+        </div>
+    </header>
+
+    <!-- Description Section -->
+    <section class="section" id="description">
+        <div class="container">
+            <h2 class="text-center">Description</h2>
+            <p id="fort-description"></p>
+        </div>
+    </section>
+
+    <!-- Image Gallery -->
+    <section class="section gallery" id="gallery">
+        <div class="container">
+            <h2 class="text-center">Gallery</h2>
+            <div class="row" id="gallery-images"></div>
+        </div>
+    </section>
+
+    <!-- Location -->
+    <section class="section" id="location">
+        <div class="container">
+            <h2 class="text-center">Location</h2>
+            <p id="fort-location"></p>
+            <iframe id="map" src="" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
+    <!-- Ways to Travel -->
+    <section class="section" id="travel">
+        <div class="container">
+            <h2 class="text-center">Ways to Travel</h2>
+            <ul id="travel-options"></ul>
+        </div>
+    </section>
+
+    <!-- More Info -->
+    <section class="section" id="more">
+        <div class="container">
+            <h2 class="text-center">More Information</h2>
+            <p id="more-info"></p>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const id = urlParams.get('id');
+
+            fetch('locations.json')
+                .then(response => response.json())
+                .then(data => {
+                    const fort = data.find(f => f.id === id);
+
+                    if (fort) {
+    document.getElementById('fort-title').innerText = fort.title;
+    document.querySelector('.hero').style.backgroundImage = `url(${fort.background_image})`;
+    document.getElementById('fort-description').innerText = fort.description;
+
+    // Update gallery images
+    const galleryImages = document.getElementById('gallery-images');
+    galleryImages.innerHTML = fort.images.map(src => `
+                            <div class="col-md-4">
+            <img src="${src}" alt="${fort.title} Image" class="img-fluid">
+        </div>
+    `).join('');
+
+    // Update location and map
+    document.getElementById('fort-location').innerText = fort.location;
+    document.getElementById('map').src = fort.map_url;
+
+    // Update travel options
+    const travelOptions = document.getElementById('travel-options');
+   travelOptions.innerHTML = fort.travel_options.map(option => `
+     <li><strong>${option.mode}:</strong> ${option.details}</li>
+  `).join('');
+
+  // Update more info
+    document.getElementById('more-info').innerText = fort.more_info;
+  } else {
+    console.error('Fort not found');
+  }
+ })
+                .catch(error => console.error('Error fetching data:', error));
+        });
+    </script>
+   <script src="/kailu/jquery.js"></script>  
+</body>
+
+</html>

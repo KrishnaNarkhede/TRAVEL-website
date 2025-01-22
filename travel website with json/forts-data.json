@@ -1,0 +1,76 @@
+{
+  "forts": [
+    {
+      "id": "1",
+      "title": "MANALI",
+      "location": "HIMACHAL PRADESH, India",
+      "famousFor": "Natural beauty, climate  and panoramic views",
+      "image": "image/manali_main.jpg",
+      "rating": "4.5"
+    },
+    {
+      "id": "2",
+      "title": "OOTY",
+      "location": "TAMIL NADU, India",
+      "famousFor": "hill station, Lakes ,waterfalls and rich climate",
+      "image": "image/ooty_main.jpg",
+      "rating": "4.4"
+    },
+    {
+      "id": "3",
+      "title": "LAKSHDWEEP",
+      "location": "KERLA, India",
+      "famousFor": "Natural beauty and geographical presence ",
+      "image": "image/lakshdweep_main.jpg",
+      "rating": "4.8"
+    },
+    {
+      "id": "4",
+      "title": "LEH LEDAKH",
+      "location": "LEH LEDAKH, India",
+      "famousFor": "Scenic trekking destination and rich history",
+      "image": "image/lehladakh_main.jpg",
+      "rating": "4.6"
+    },
+    {
+      "id": "5",
+      "title": "HIMACHAL",
+      "location": "HIMACHAL PRADESH, India",
+      "famousFor": "trekking trails , weather and natural beauty ",
+      "image": "image/himachal_main.jpg",
+      "rating": "4.7"
+    },
+    {
+      "id": "6",
+      "title": "KEDARNATH",
+      "location": "UTTRAKHAND, India",
+      "famousFor": "Natural beauty, Temple and trekking trails",
+      "image": "image/Kedarnath_main.jpg",
+      "rating": "4.7"
+    },
+    {
+      "id": "7",
+      "title": "TAJ MAHAL",
+      "location": "AGRA, India",
+      "famousFor": "architectural brilliance and monument of love",
+      "image": "image/tajmahel_main.jpeg",
+      "rating": "4.7"
+    },
+    {
+      "id": "8",
+      "title": "VERUL AJANTA",
+      "location": "AURANGABAD, Maharashtra, India",
+      "famousFor": "Historical significance and architectural brilliance",
+      "image": "image/ajanta_main.jpg",
+      "rating": "4.8"
+    },
+    {
+      "id": "9",
+      "title": "AMRITSAR",
+      "location": "PUNJAB, India",
+      "famousFor": "Goldan temple and architectural brilliance",
+      "image": "image/amritsar_main.jpg",
+      "rating": "4.7"
+    }
+  ]
+}
